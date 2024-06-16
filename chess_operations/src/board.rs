@@ -4,14 +4,14 @@
 
 
 //defining bitboards
-struct Bitboard(u64);
+pub struct Bitboard(u64);
 
 impl Bitboard {
-    const fn empty() -> Self {
+    pub const fn empty() -> Self {
         Bitboard(0)
     }
 
-    fn from_squares(squares: &[usize]) -> Self {
+    pub fn from_squares(squares: &[usize]) -> Self {
         let mut bitboard = Bitboard::empty(); 
         let mut i = 0;
         while i < squares.len() {
@@ -19,6 +19,16 @@ impl Bitboard {
             i += 1; 
         }
         bitboard
+    }
+
+    pub fn set_square(&mut self, square: usize) {
+        let x: u64 = 1;
+        self.0 |= x << square
+    }
+
+    pub fn get_square(&self, square: usize) -> u64 {
+        let x: u64 = 1;
+        self.0 & x << square 
     }
 }
 

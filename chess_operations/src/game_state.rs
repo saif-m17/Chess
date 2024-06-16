@@ -7,8 +7,13 @@ mod board;
 use board::ChessBoard;
 use board::print_chess_board;
 
+enum Side {
+    White,
+    Black
+}
+
 struct GameState {
-    side: u16, 
+    side: Side, 
     board: ChessBoard,
     game_over: bool,
     white_castle: bool,
@@ -18,7 +23,7 @@ struct GameState {
 impl GameState {
     fn new() -> Self {
         GameState {
-            side: 0,
+            side: Side::White,
             board: ChessBoard::new(),
             game_over: false,
             white_castle: true,
