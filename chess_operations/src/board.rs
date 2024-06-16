@@ -30,6 +30,27 @@ impl Bitboard {
         let x: u64 = 1;
         self.0 & x << square 
     }
+
+    pub fn pop_square(&mut self, square: usize) -> u64 {
+        let x: u64 = 1;
+        if self.get_square(square) == 1 {
+            self.0 ^= x << square; 
+            self.0
+        } else {
+            0
+        }
+    }
+
+    pub fn print_bit_board(&self) {
+        for row in (0..8).rev() {
+            for col in 0..8 {
+                let index = row * 8 + col;
+                let bit = (self.0 >> index) & 1;
+                print!("{} ", bit);
+            }
+            println!();
+        }
+    }
 }
 
 //defining chess board 

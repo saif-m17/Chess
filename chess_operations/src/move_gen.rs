@@ -1,3 +1,7 @@
+//Author: Saif Moolji
+//Date: 6/15/24
+//Code to generate possible legal moves
+
 mod board;
 
 use board::Bitboard;
@@ -42,6 +46,10 @@ pub fn generate_pawn_moves(square: Square, side: Side) {
 }
 
 fn main() {
-    let x = Bitboard::empty();
+    let mut x = Bitboard::empty();
+    x.set_square(5);
+    x.set_square(6);
+    let y = x.get_square(5);
+    x.print_bit_board();
 }
 
