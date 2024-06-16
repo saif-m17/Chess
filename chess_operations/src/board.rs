@@ -23,7 +23,7 @@ impl Bitboard {
 }
 
 //defining chess board 
-struct ChessBoard {
+pub struct ChessBoard {
     white_pawns: Bitboard,
     white_knights: Bitboard,
     white_bishops: Bitboard,
@@ -40,7 +40,7 @@ struct ChessBoard {
 }
 
 impl ChessBoard {
-    fn new() -> Self {
+    pub fn new() -> Self {
         ChessBoard {
             white_pawns: Bitboard::from_squares(&[8, 9, 10, 11, 12, 13, 14, 15]),
             white_knights: Bitboard::from_squares(&[1, 6]),
@@ -61,7 +61,7 @@ impl ChessBoard {
 }
 
 //print for testing
-fn print_chess_board(board: &ChessBoard) {
+pub fn print_chess_board(board: &ChessBoard) {
     let pieces = [
         ('\u{265F}', '\u{2659}'), // Pawns
         ('\u{265E}', '\u{2658}'), // Knights
